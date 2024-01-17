@@ -1,6 +1,15 @@
 body{
-    background-color: blue;
+    background-color: #6bbce5;
+    margin: 0px;
+    padding: 0px;
 }
+#main{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  margin-left: 50vh;
+}
+
 label{
     font-size: 2rem;
 }
@@ -9,8 +18,15 @@ input{
     width: 28%;
     font-size: 1.4rem;
     text-align: center; 
-    border: 2px solid green;
-border-radius: 300px;
+    border: 2px solid #1A1A1A;
+    background-color: #6bbce5;
+    color: #1A1A1A;
+  border-radius: 300px;
+}
+
+::placeholder {
+  color: #1A1A1A;
+  opacity: 1; 
 }
 
 #cdf{
@@ -22,7 +38,7 @@ button {
    appearance: none;
     background-color: transparent;
     border: 2px solid #1A1A1A;
-    border-radius: 15px;
+    border-radius: 40px;
     box-sizing: border-box;
     color: #3B3B3B;
     cursor: pointer;
@@ -63,21 +79,29 @@ button:active {
 }
 
 #formContainer{
-
   margin-top: 80px;
- 
-  
 
 }
 
-#option{
-  margin-top: 20px;
-}
-#s2{
-   /* margin-bottom: 60px; */
-}
 
 .formData{
-margin: 10px;
+margin: 1vh;
+padding: 10px;
+
+}
+
+#fs{
+  font-size: 2.8rem;
+}
+#debugText{
+  font-size: 2.4rem;
+}
+#s2{
+  margin-bottom: 20vh;
+}
+
+#count{
+  width: 60%;
+  
 
 }

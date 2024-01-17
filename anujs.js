@@ -1,6 +1,4 @@
 let num;
-
-
 let valanu;
 
 function createForm() {
@@ -188,31 +186,67 @@ function countprint(){
     }
 //    console.log(valanu);
 
-   if(valanu==="all"){
+   if(valanu==="ALL"){
     console.log(valanu);
     // console.log(c1);
     if(c1==num){
 
         let opt=document.querySelector('#fs')
-        opt.innerText=`Success claue of c1 is ${c1} and value of num is ${num}`
+        opt.innerText=`Success `
     }
     else{
         let opt=document.querySelector('#fs')
-        opt.innerText=`fail claue of c1 is ${c1} and value of num is ${num}`
+        opt.innerText=`fail `
     }
    }
 
-   else if(valanu==="any"){
+   else if(valanu==="ANY"){
     if(c1>=1){
 
         let opt=document.querySelector('#fs')
-        opt.innerText=`Success vlaue of c1 is ${c1} and value of num is ${num}`
+        opt.innerText=`Success `
     }
     else{
         let opt=document.querySelector('#fs')
-        opt.innerText=`Fail claue of c1 is ${c1} and value of num is ${num}`
+        opt.innerText=`Fail `
     }
    }
+
+
+
+   let debugButton = document.createElement('button');
+    debugButton.innerText = 'Debug';
+    debugButton.className = 'dbg';
+    document.getElementById('de').appendChild(debugButton);
+
+   
+    debugButton.addEventListener('click', function () {
+        // Your debug logic here
+        let c=0;
+        for(let i=0;i<num;i++){
+            let res=null;
+            const formDataElements = document.getElementsByClassName('formData');
+            const formDataArray = Array.from(formDataElements);
+            let para=document.createElement('p');
+            para.id='debugText';
+            document.getElementById('de').appendChild(para);
+            if(arrayCheck[i]==0){
+                res='FAIL';
+            }
+            else{
+                res='PASS';
+            }
+            let strn=formDataArray[c].value + ' : ' + res;
+            para.innerText=strn;
+            c=c+3;
+            document.getElementById("count").disabled = true;
+        }
+       
+
+    });
+   
+
+   
     
 }
 
