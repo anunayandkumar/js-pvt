@@ -257,21 +257,24 @@ function countprint(){
         console.log(valanu);
         console.log(numb);
         // Your debug logic here
-        let c=0;
+        let c=0,cc=1,ccc=2;
         for(let i=0;i<cn;i++){
             let res=null;
+            let chk;
             const formDataElements = document.getElementsByClassName('formData');
             const formDataArray = Array.from(formDataElements);
             let para=document.createElement('p');
             para.id='debugText';
             document.getElementById('de').appendChild(para);
             if(arrayCheck[i]==0){
-                res='FAIL';
+                res='FAILED';
+                chk='NOT';
             }
             else{
                 res='PASS';
+                chk='IS';
             }
-            let strn=formDataArray[c].value + ' : ' + res;
+            let strn=`${res} . Reason: ${formDataArray[c].value} ${chk} ${formDataArray[c+1].value} ${formDataArray[c+2].value}`;
             para.innerText=strn;
             c=c+3;
             document.getElementById("count").disabled = true;
