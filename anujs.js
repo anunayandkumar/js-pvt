@@ -1,52 +1,85 @@
-let num;
+
+
+// function createForm() {
+
+//     // Clear existing form fields
+//     document.getElementById('formContainer').innerHTML = "";
+
+//     // Get the value of 'n'
+//     const n = document.getElementById('nInput').value;
+//     num=n;
+//     // Create 'n' input fields
+//     let k=1;
+//     for (let i = 1; i <= 3*n; i++) {
+//         const inputField = document.createElement('input');
+//         inputField.type = 'text';
+//         if((i-1)%3==0)
+//             inputField.placeholder = `LHS ${k}`;
+//         else if((i-1)%3==1)
+//             inputField.placeholder = `Operator ${k}`;
+//         else
+//             inputField.placeholder = `Value ${k}`;
+//         inputField.id = `data${i}`;
+        
+//         inputField.className = 'formData';
+//         inputField.style.width='20%';
+        
+//         // Append input field to the form container
+//         document.getElementById('formContainer').appendChild(inputField);
+       
+//         if(i%3==0){
+//         k++;    
+//         const lineBreak = document.createElement('br');
+//         document.getElementById('formContainer').appendChild(lineBreak);
+//         }
+//     }
+//     const option = document.createElement('br');
+//     document.getElementById('formContainer').appendChild(lineBreak);
+//     hd.classList.remove("hide");
+   
+// }
+let numb=0;
 let valanu;
 
+let cn=0;
+let k=1;
 function createForm() {
-
-    // Clear existing form fields
-    document.getElementById('formContainer').innerHTML = "";
-
-    // Get the value of 'n'
-    const n = document.getElementById('nInput').value;
-    num=n;
-    // Create 'n' input fields
-    let k=1;
-    for (let i = 1; i <= 3*n; i++) {
-        const inputField = document.createElement('input');
-        inputField.type = 'text';
-        if((i-1)%3==0)
-            inputField.placeholder = `LHS ${k}`;
-        else if((i-1)%3==1)
-            inputField.placeholder = `Operator ${k}`;
-        else
-            inputField.placeholder = `Value ${k}`;
-        inputField.id = `data${i}`;
-        
-        inputField.className = 'formData';
-        inputField.style.width='20%';
-        
-        // Append input field to the form container
-        document.getElementById('formContainer').appendChild(inputField);
-       
-        if(i%3==0){
-        k++;    
-        const lineBreak = document.createElement('br');
-        document.getElementById('formContainer').appendChild(lineBreak);
-        }
-    }
-    const option = document.createElement('br');
-    document.getElementById('formContainer').appendChild(lineBreak);
-    hd.classList.remove("hide");
+    cn++;
+    var container = document.getElementById('formContainer');
    
+    for (var i = 1; i <=3; i++) {
+      var input = document.createElement("input");
+      input.type = "text";
+
+      if((i-1)%3==0)
+        input.placeholder = `LHS ${i}`;
+      else if((i-1)%3==1)
+        input.placeholder = `Operator ${i}`;
+      else
+       input.placeholder = `Value ${i}`;
+      input.id = `data${k}`;
+  
+      input.className = 'formData';
+      
+       container.appendChild(input);
+       k=k+1;
+      
+    }
+   
+    const option = document.createElement('br');
+    container.appendChild(option);
+
 }
+
 
 let arrayCheck = [];
 
 function submit() {
+    console.log(numb,cn);
     document.getElementById('form2Container').innerHTML = "";
     const formDataArray1  = [];
     // Get the value of 'n'
-    const n = document.getElementById('nInput').value;
+    let n = cn;
 
     // Create 'n' input fields
     let j=0;
@@ -99,7 +132,7 @@ function submit() {
             const input_i2 = formDataArray[index + 1].value;
             const input_i3 = parseFloat(formDataArray[index + 2].value);
             // Your comparison logic here...
-            const n = document.getElementById('nInput').value;
+            let n = cn;
             let val;
             if(input_i2=='>'){
                 if(input_i1>input_i3){
@@ -178,7 +211,7 @@ function submit() {
 function countprint(){
     let c0=0;
     let c1=0;
-    for(let i=0;i<num;i++){
+    for(let i=0;i<cn;i++){
         if(arrayCheck[i]===0)
             c0++;
         else
@@ -187,9 +220,9 @@ function countprint(){
 //    console.log(valanu);
 
    if(valanu==="ALL"){
-    console.log(valanu);
+    // console.log(valanu);
     // console.log(c1);
-    if(c1==num){
+    if(c1==cn){
 
         let opt=document.querySelector('#fs')
         opt.innerText=`Success `
@@ -221,9 +254,11 @@ function countprint(){
 
    
     debugButton.addEventListener('click', function () {
+        console.log(valanu);
+        console.log(numb);
         // Your debug logic here
         let c=0;
-        for(let i=0;i<num;i++){
+        for(let i=0;i<cn;i++){
             let res=null;
             const formDataElements = document.getElementsByClassName('formData');
             const formDataArray = Array.from(formDataElements);
